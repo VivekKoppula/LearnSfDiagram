@@ -1,0 +1,57 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf" 
+        x:Class="TwoNodeOneStyleDiagram.MainWindow"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="550" Width="600">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!--Initialize Shapes-->
+                <ResourceDictionary Source="/Syncfusion.SfDiagram.Wpf;component/Resources/BasicShapes.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <!--Begin Node-->
+
+            <!--Style for Shape of the Begin Node-->
+            <Style TargetType="Path" x:Key="ShapeStyleForBothNodes">
+                <Setter Property="Fill" Value="LightBlue"/>
+                <Setter Property="Stretch" Value="Fill"/>
+                <Setter Property="Stroke" Value="Red"/>
+                <Setter Property="StrokeThickness" Value="5"/>
+            </Style>
+
+            <!--To apply Style for Begin NodeViewModel-->
+            <!--If I understand correctly, the following is to apply the ShapeStyleForBothNodes to all the Nodes -->
+            <!--And to which property of the node? Its the ShapeStyle property of the Each node elment. -->
+            <Style TargetType="syncfusion:Node" >
+                <Setter Property="ShapeStyle" Value="{StaticResource ShapeStyleForBothNodes}"></Setter>
+            </Style>
+
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid>
+        <!--Initializes the SfDiagram in XMAL window-->
+        <syncfusion:SfDiagram x:Name="diagram" HorizontalAlignment="Left" Margin="20" VerticalAlignment="Top" Height="400" Width="500">
+            <syncfusion:SfDiagram.Nodes>
+                <syncfusion:NodeCollection>
+                    <!--Begin-->
+                    <syncfusion:NodeViewModel ID="Begin" UnitHeight="40" UnitWidth="120" OffsetX="300" OffsetY="60"
+                                              Shape="{StaticResource Ellipse}" >
+                    </syncfusion:NodeViewModel>
+
+                    <!--End-->
+                    <syncfusion:NodeViewModel ID="End" UnitHeight="40" UnitWidth="120" OffsetX="300" OffsetY="200"
+                                              Shape="{StaticResource Rectangle}" >
+                    </syncfusion:NodeViewModel>
+                    
+                </syncfusion:NodeCollection>
+            </syncfusion:SfDiagram.Nodes>
+        </syncfusion:SfDiagram>
+    </Grid>
+</Window>

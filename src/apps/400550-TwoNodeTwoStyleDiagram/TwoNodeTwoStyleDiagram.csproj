@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Syncfusion.SfDiagram.WPF" Version="22.2.11" />
+	    <PackageReference Include="Syncfusion.Shared.WPF" Version="22.2.11" />
+	    <PackageReference Include="Syncfusion.SfDiagramRibbon.WPF" Version="22.2.11" />
+    </ItemGroup>
+
+</Project>
